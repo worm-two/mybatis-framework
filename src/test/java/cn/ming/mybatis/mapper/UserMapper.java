@@ -1,5 +1,9 @@
 package cn.ming.mybatis.mapper;
 
+import cn.ming.mybatis.entity.User;
+
+import java.util.List;
+
 /**
  * @Author: xuming
  * @Date: 2023-07-08 13:23
@@ -8,5 +12,7 @@ package cn.ming.mybatis.mapper;
  **/
 public interface UserMapper {
 
+    User queryUserInfoById(Long id);
 
+    List<User> queryUserList(User user);
 }

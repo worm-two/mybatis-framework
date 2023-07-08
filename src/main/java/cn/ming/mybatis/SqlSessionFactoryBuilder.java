@@ -28,7 +28,6 @@ public class SqlSessionFactoryBuilder {
 
     public DefaultSqlSessionFactory build(Reader reader) {
         SAXReader saxReader = new SAXReader();
-
         try {
             Document document = saxReader.read(new InputSource(reader));
             Configuration configuration = parseConfiguration(document.getRootElement());
@@ -42,7 +41,7 @@ public class SqlSessionFactoryBuilder {
 
     private Configuration parseConfiguration(Element root) {
         Configuration configuration = new Configuration();
-        configuration.setDatabase(dataSource(root.selectNodes("//database")));
+        configuration.setDatabase(dataSource(root.selectNodes("//dataSource")));
         configuration.setConnection(connection(configuration.database));
         configuration.setMapperElement(mapperElement(root.selectNodes("//mappers")));
         return configuration;

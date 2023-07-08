@@ -5,7 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 /**
  * @Author: xuming
@@ -42,10 +42,10 @@ public class User {
     /**
      * 创建时间
      */
-    private LocalDate createTime;
+    private Date createTime;
 
     /**
      * 修改时间
      */
-    private LocalDate updateTime;
+    private Date updateTime;
 }

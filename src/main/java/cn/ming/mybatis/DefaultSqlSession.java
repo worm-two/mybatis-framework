@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -94,7 +95,7 @@ public class DefaultSqlSession implements SqlSession {
         try {
             connection.close();
         } catch (SQLException e) {
-           log.error("Error while closing:",e);
+            log.error("Error while closing:", e);
         }
     }
 
@@ -113,7 +114,7 @@ public class DefaultSqlSession implements SqlSession {
                     String setMethod = "set" + columnName.substring(0, 1).toUpperCase() + columnName.substring(1);
                     Method method;
                     if (value instanceof Timestamp) {
-                        method = clazz.getMethod(setMethod, Date.class);
+                        method = clazz.getMethod(setMethod, java.util.Date.class);
                     } else {
                         method = clazz.getMethod(setMethod, value.getClass());
                     }
