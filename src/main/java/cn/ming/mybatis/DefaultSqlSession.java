@@ -5,10 +5,11 @@ import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -44,11 +45,27 @@ public class DefaultSqlSession implements SqlSession {
 
     @Override
     public <T> T selectOne(String statement, Object parameter) {
+        XNode xNode = mapperElement.get(statement);
+        Map<Integer, String> parameterMap = xNode.getParameter();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(xNode.getSql());
+            buildParameter(preparedStatement, parameter, parameterMap);
+        } catch (Exception e) {
+
+        }
         return null;
     }
 
     @Override
-    public <T> List<T> selectList(Object parameter) {
+    public <T> List<T> selectList(String statement) {
+        XNode xNode = mapperElement.get(statement);
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(xNode.getSql());
+            ResultSet resultSet = preparedStatement.executeQuery();
+            return dealResult(resultSet, Class.forName(xNode.getResultType()));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return null;
     }
 
@@ -89,5 +106,71 @@ public class DefaultSqlSession implements SqlSession {
             log.error("Error getting:", e);
         }
         return list;
+    }
+
+    private void buildParameter(PreparedStatement preparedStatement, Object parameter, Map<Integer, String> parameterMap) throws Exception {
+        int size = parameterMap.size();
+        // 单个参数
+        if (parameter instanceof Long) {
+            for (int i = 1; i <= size; i++) {
+                preparedStatement.setLong(i, Long.parseLong(parameter.toString()));
+            }
+            return;
+        }
+
+        if (parameter instanceof Integer) {
+            for (int i = 1; i <= size; i++) {
+                preparedStatement.setInt(i, Integer.parseInt(parameter.toString()));
+            }
+            return;
+        }
+
+        if (parameter instanceof String) {
+            for (int i = 1; i <= size; i++) {
+                preparedStatement.setString(i, parameter.toString());
+            }
+            return;
+        }
+
+        Map<String, Object> fieldMap = new HashMap<>();
+        // 对象参数
+        Field[] declaredFields = parameter.getClass().getDeclaredFields();
+        for (Field field : declaredFields) {
+            String name = field.getName();
+            field.setAccessible(true);
+            Object obj = field.get(parameter);
+            field.setAccessible(false);
+            fieldMap.put(name, obj);
+        }
+
+        for (int i = 1; i <= size; i++) {
+            String filedName = parameterMap.get(i);
+            Object obj = fieldMap.get(filedName);
+
+            if (obj instanceof Short) {
+                preparedStatement.setShort(i, Short.parseShort(obj.toString()));
+                continue;
+            }
+
+            if (obj instanceof Integer) {
+                preparedStatement.setInt(i, Integer.parseInt(obj.toString()));
+                continue;
+            }
+
+            if (obj instanceof Long) {
+                preparedStatement.setLong(i, Long.parseLong(obj.toString()));
+                continue;
+            }
+
+            if (obj instanceof String) {
+                preparedStatement.setString(i, obj.toString());
+                continue;
+            }
+
+            if (obj instanceof Date) {
+                preparedStatement.setDate(i, (java.sql.Date) obj);
+            }
+
+        }
     }
 }

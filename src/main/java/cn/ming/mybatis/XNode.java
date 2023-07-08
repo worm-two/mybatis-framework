@@ -19,9 +19,9 @@ public class XNode {
 
     private String parameterType;
 
-    private String resourceType;
+    private String resultType;
 
     private String sql;
 
-    private Map<String, String> parameter;
+    private Map<Integer, String> parameter;
 }
