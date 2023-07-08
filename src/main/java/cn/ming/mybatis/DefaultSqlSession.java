@@ -34,7 +34,8 @@ public class DefaultSqlSession implements SqlSession {
             XNode xNode = mapperElement.get(statement);
             PreparedStatement preparedStatement = connection.prepareStatement(xNode.getSql());
             ResultSet resultSet = preparedStatement.executeQuery();
-            List<T> result = dealResult(resultSet, Class.forName(xNode.getParameterType()));
+            List<T> result = dealResult(resultSet, Class.forName(xNode.getResultType()));
+            result.get(0);
         } catch (Exception e) {
             log.error("Exception", e);
         }
@@ -50,6 +51,9 @@ public class DefaultSqlSession implements SqlSession {
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(xNode.getSql());
             buildParameter(preparedStatement, parameter, parameterMap);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            List<T> list = dealResult(resultSet, Class.forName(xNode.getResultType()));
+            return list.get(0);
         } catch (Exception e) {
 
         }
@@ -64,19 +68,34 @@ public class DefaultSqlSession implements SqlSession {
             ResultSet resultSet = preparedStatement.executeQuery();
             return dealResult(resultSet, Class.forName(xNode.getResultType()));
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("exception:", e);
         }
         return null;
     }
 
     @Override
     public <T> List<T> selectList(String statement, Object parameter) {
+        XNode xNode = mapperElement.get(statement);
+        Map<Integer, String> parameterMap = xNode.getParameter();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(xNode.getSql());
+            buildParameter(preparedStatement, parameter, parameterMap);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            return dealResult(resultSet, Class.forName(xNode.getResultType()));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return null;
     }
 
     @Override
     public void close() {
-
+        if (connection == null) return;
+        try {
+            connection.close();
+        } catch (SQLException e) {
+           log.error("Error while closing:",e);
+        }
     }
 
     private <T> List<T> dealResult(ResultSet resultSet, Class<?> clazz) {
