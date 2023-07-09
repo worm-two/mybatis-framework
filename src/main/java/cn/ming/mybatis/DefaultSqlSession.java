@@ -56,7 +56,7 @@ public class DefaultSqlSession implements SqlSession {
             List<T> list = dealResult(resultSet, Class.forName(xNode.getResultType()));
             return list.get(0);
         } catch (Exception e) {
-
+            log.error("error:",e);
         }
         return null;
     }
