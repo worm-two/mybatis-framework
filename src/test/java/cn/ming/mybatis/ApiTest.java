@@ -16,7 +16,7 @@ import java.io.Reader;
 public class ApiTest {
 
     @Test
-    public void app() throws Exception {
+    public void selectOne() throws Exception {
         String resource = "mybatis-config.xml";
         Reader reader;
         reader = Resources.getResourcesAsReader(resource);

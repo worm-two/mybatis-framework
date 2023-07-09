@@ -35,7 +35,6 @@ public class SqlSessionFactoryBuilder {
         } catch (Exception e) {
             log.error("exception:", e);
         }
-
         return null;
     }
 
