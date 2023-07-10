@@ -1,4 +1,4 @@
-package cn.ming.mybatis;
+package cn.ming.mybatis.session;
 
 /**
  * @Author: xuming

@@ -1,5 +1,7 @@
-package cn.ming.mybatis;
+package cn.ming.mybatis.session.defaults;
 
+import cn.ming.mybatis.binding.MapperRegistry;
+import cn.ming.mybatis.session.SqlSession;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
@@ -7,7 +9,6 @@ import lombok.extern.slf4j.Slf4j;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,21 +26,23 @@ import java.util.Map;
 @Slf4j
 public class DefaultSqlSession implements SqlSession {
 
-    private Connection connection;
+    // private Connection connection;
+    //
+    // private Map<String, XNode> mapperElement;
 
-    private Map<String, XNode> mapperElement;
+    private final MapperRegistry mapperRegistry;
 
     @Override
     public <T> T selectOne(String statement) {
-        try {
-            XNode xNode = mapperElement.get(statement);
-            PreparedStatement preparedStatement = connection.prepareStatement(xNode.getSql());
-            ResultSet resultSet = preparedStatement.executeQuery();
-            List<T> result = dealResult(resultSet, Class.forName(xNode.getResultType()));
-            result.get(0);
-        } catch (Exception e) {
-            log.error("Exception", e);
-        }
+        // try {
+        //     XNode xNode = mapperElement.get(statement);
+        //     PreparedStatement preparedStatement = connection.prepareStatement(xNode.getSql());
+        //     ResultSet resultSet = preparedStatement.executeQuery();
+        //     List<T> result = dealResult(resultSet, Class.forName(xNode.getResultType()));
+        //     result.get(0);
+        // } catch (Exception e) {
+        //     log.error("Exception", e);
+        // }
 
         return null;
     }
@@ -47,56 +50,64 @@ public class DefaultSqlSession implements SqlSession {
 
     @Override
     public <T> T selectOne(String statement, Object parameter) {
-        XNode xNode = mapperElement.get(statement);
-        Map<Integer, String> parameterMap = xNode.getParameter();
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(xNode.getSql());
-            buildParameter(preparedStatement, parameter, parameterMap);
-            ResultSet resultSet = preparedStatement.executeQuery();
-            List<T> list = dealResult(resultSet, Class.forName(xNode.getResultType()));
-            return list.get(0);
-        } catch (Exception e) {
-            log.error("error:",e);
-        }
-        return null;
+
+        return (T) ("你的操作被代理了！" + "方法：" + statement + " 入参：" + parameter);
+
+        // XNode xNode = mapperElement.get(statement);
+        // Map<Integer, String> parameterMap = xNode.getParameter();
+        // try {
+        //     PreparedStatement preparedStatement = connection.prepareStatement(xNode.getSql());
+        //     buildParameter(preparedStatement, parameter, parameterMap);
+        //     ResultSet resultSet = preparedStatement.executeQuery();
+        //     List<T> list = dealResult(resultSet, Class.forName(xNode.getResultType()));
+        //     return list.get(0);
+        // } catch (Exception e) {
+        //     log.error("error:",e);
+        // }
+        // return null;
     }
 
     @Override
     public <T> List<T> selectList(String statement) {
-        XNode xNode = mapperElement.get(statement);
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(xNode.getSql());
-            ResultSet resultSet = preparedStatement.executeQuery();
-            return dealResult(resultSet, Class.forName(xNode.getResultType()));
-        } catch (Exception e) {
-            log.error("exception:", e);
-        }
+        // XNode xNode = mapperElement.get(statement);
+        // try {
+        //     PreparedStatement preparedStatement = connection.prepareStatement(xNode.getSql());
+        //     ResultSet resultSet = preparedStatement.executeQuery();
+        //     return dealResult(resultSet, Class.forName(xNode.getResultType()));
+        // } catch (Exception e) {
+        //     log.error("exception:", e);
+        // }
         return null;
     }
 
     @Override
     public <T> List<T> selectList(String statement, Object parameter) {
-        XNode xNode = mapperElement.get(statement);
-        Map<Integer, String> parameterMap = xNode.getParameter();
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(xNode.getSql());
-            buildParameter(preparedStatement, parameter, parameterMap);
-            ResultSet resultSet = preparedStatement.executeQuery();
-            return dealResult(resultSet, Class.forName(xNode.getResultType()));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        // XNode xNode = mapperElement.get(statement);
+        // Map<Integer, String> parameterMap = xNode.getParameter();
+        // try {
+        //     PreparedStatement preparedStatement = connection.prepareStatement(xNode.getSql());
+        //     buildParameter(preparedStatement, parameter, parameterMap);
+        //     ResultSet resultSet = preparedStatement.executeQuery();
+        //     return dealResult(resultSet, Class.forName(xNode.getResultType()));
+        // } catch (Exception e) {
+        //     e.printStackTrace();
+        // }
         return null;
     }
 
     @Override
+    public <T> T getMapper(Class<T> type) {
+        return mapperRegistry.getMapper(type,this);
+    }
+
+    @Override
     public void close() {
-        if (connection == null) return;
-        try {
-            connection.close();
-        } catch (SQLException e) {
-            log.error("Error while closing:", e);
-        }
+        // if (connection == null) return;
+        // try {
+        //     connection.close();
+        // } catch (SQLException e) {
+        //     log.error("Error while closing:", e);
+        // }
     }
 
     private <T> List<T> dealResult(ResultSet resultSet, Class<?> clazz) {

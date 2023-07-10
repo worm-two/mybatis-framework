@@ -1,7 +1,15 @@
 package cn.ming.mybatis;
 
+import cn.ming.mybatis.binding.MapperProxy;
+import cn.ming.mybatis.binding.MapperProxyFactory;
+import cn.ming.mybatis.binding.MapperRegistry;
 import cn.ming.mybatis.entity.User;
+import cn.ming.mybatis.mapper.SchoolMapper;
 import cn.ming.mybatis.mapper.UserMapper;
+import cn.ming.mybatis.session.SqlSession;
+import cn.ming.mybatis.session.SqlSessionFactory;
+import cn.ming.mybatis.session.defaults.DefaultSqlSession;
+import cn.ming.mybatis.session.defaults.DefaultSqlSessionFactory;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 
@@ -39,9 +47,23 @@ public class ApiTest {
         sqlSession.put("cn.ming.mybatis.mapper.UserMapper.queryUserName", "模拟执行查询操作");
         sqlSession.put("cn.ming.mybatis.mapper.UserMapper.queryUserAge", "模拟执行查询操作");
 
-        UserMapper userMapper = factory.newInstance(sqlSession);
-        String name = userMapper.queryUserName("10001");
-        System.out.println("name = " + name);
+        // UserMapper userMapper = factory.newInstance(sqlSession);
+        // String name = userMapper.queryUserName("10001");
+        // System.out.println("name = " + name);
 
+    }
+
+    @Test
+    public void mapperRegistry() {
+        MapperRegistry registry = new MapperRegistry();
+        registry.addMappers("cn.ming.mybatis.mapper");
+
+        SqlSessionFactory sqlSessionFactory = new DefaultSqlSessionFactory(registry);
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+
+        String name = mapper.queryUserName("10001");
+        log.info("测试结果是:{}",name);
     }
 }

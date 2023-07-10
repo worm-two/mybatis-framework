@@ -1,5 +1,6 @@
-package cn.ming.mybatis;
+package cn.ming.mybatis.binding;
 
+import cn.ming.mybatis.session.SqlSession;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -17,19 +18,19 @@ import java.util.Map;
 @AllArgsConstructor
 public class MapperProxy<T> implements InvocationHandler, Serializable {
 
-
     private static final long serialVersionUID = 8284280270259075939L;
 
-    private Map<String, String> sqlSession;
+    private SqlSession sqlSession;
 
     private final Class<T> mapperInterface;
 
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         if (Object.class.equals(method.getDeclaringClass())) {
+            // 调用 toString、equals、hashCode 等父类方法
             return method.invoke(this, args);
         } else {
-            return "你的Mapper接口被代理了!" + sqlSession.get(mapperInterface.getName() + "." + method.getName());
+            return sqlSession.selectOne(method.getName(),args);
         }
     }
 }

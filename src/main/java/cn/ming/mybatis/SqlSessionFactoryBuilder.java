@@ -1,5 +1,6 @@
 package cn.ming.mybatis;
 
+import cn.ming.mybatis.session.defaults.DefaultSqlSessionFactory;
 import lombok.extern.slf4j.Slf4j;
 import org.dom4j.Document;
 import org.dom4j.Element;
@@ -31,7 +32,8 @@ public class SqlSessionFactoryBuilder {
         try {
             Document document = saxReader.read(new InputSource(reader));
             Configuration configuration = parseConfiguration(document.getRootElement());
-            return new DefaultSqlSessionFactory(configuration);
+            // return new DefaultSqlSessionFactory(configuration);
+            return null;
         } catch (Exception e) {
             log.error("exception:", e);
         }
