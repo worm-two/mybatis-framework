@@ -10,9 +10,9 @@
         where id = #{id}
     </select>
 
-    <select id="queryUserList" parameterType="cn.ming.mybatis.entity.User" resultType="cn.ming.mybatis.entity.User">
-        SELECT id, userId, userName, userHead, createTime, updateTime
-        FROM user
-        where userId = #{userId}
-    </select>
+    <!-- <select id="queryUserList" parameterType="cn.ming.mybatis.entity.User" resultType="cn.ming.mybatis.entity.User"> -->
+    <!--     SELECT id, userId, userName, userHead, createTime, updateTime -->
+    <!--     FROM user -->
+    <!--     where userId = #{userId} -->
+    <!-- </select> -->
 </mapper>

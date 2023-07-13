@@ -108,7 +108,7 @@ public class XMLConfigBuilder extends BaseBuilder {
 
                 String msId = namespace + "." + id;
                 String nodeName = node.getName();
-                SqlCommandType sqlCommandType = SqlCommandType.valueOf(namespace.toUpperCase(Locale.ENGLISH));
+                SqlCommandType sqlCommandType = SqlCommandType.valueOf(nodeName.toUpperCase(Locale.ENGLISH));
                 MappedStatement mappedStatement = new MappedStatement().builder()
                         .configuration(configuration)
                         .id(msId)
