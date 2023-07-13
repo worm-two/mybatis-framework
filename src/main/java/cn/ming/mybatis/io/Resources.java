@@ -17,7 +17,6 @@ public class Resources {
         return new InputStreamReader(getResourceAsStream(resource));
     }
 
-
     public static InputStream getResourceAsStream(String resource) throws IOException {
         ClassLoader[] classLoaders = getClassLoaders();
         for (ClassLoader classLoader : classLoaders) {
@@ -31,5 +30,9 @@ public class Resources {
 
     private static ClassLoader[] getClassLoaders() {
         return new ClassLoader[]{ClassLoader.getSystemClassLoader(), Thread.currentThread().getContextClassLoader()};
+    }
+
+    public static Class<?> classForName(String className) throws Exception {
+        return Class.forName(className);
     }
 }

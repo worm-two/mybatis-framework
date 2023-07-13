@@ -1,6 +1,7 @@
 package cn.ming.mybatis.session.defaults;
 
 import cn.ming.mybatis.binding.MapperRegistry;
+import cn.ming.mybatis.session.Configuration;
 import cn.ming.mybatis.session.SqlSession;
 import cn.ming.mybatis.session.SqlSessionFactory;
 import lombok.AllArgsConstructor;
@@ -14,13 +15,11 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class DefaultSqlSessionFactory implements SqlSessionFactory {
 
-    // private final Configuration configuration;
 
-
-    private final MapperRegistry mapperRegistry;
+    private final Configuration configuration;
 
     @Override
     public SqlSession openSession() {
-        return new DefaultSqlSession(mapperRegistry);
+        return new DefaultSqlSession(configuration);
     }
 }
