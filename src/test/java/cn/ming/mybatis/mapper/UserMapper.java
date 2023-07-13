@@ -12,11 +12,13 @@ import java.util.List;
  **/
 public interface UserMapper {
 
-    User queryUserInfoById(Long id);
+    // User queryUserInfoById(Long id);
+    //
+    // List<User> queryUserList(User user);
+    //
+    // String queryUserName(String uId);
+    //
+    // Integer queryUserAge(String uId);
 
-    List<User> queryUserList(User user);
-
-    String queryUserName(String uId);
-
-    Integer queryUserAge(String uId);
+    String queryUserInfoById(String userId);
 }

@@ -23,7 +23,7 @@ public class MapperProxy<T> implements InvocationHandler, Serializable {
 
     private final Class<T> mapperInterface;
 
-    private Map<Method, MapperMethod> methodCache;
+    private final Map<Method, MapperMethod> methodCache;
 
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
@@ -31,7 +31,8 @@ public class MapperProxy<T> implements InvocationHandler, Serializable {
             // 调用 toString、equals、hashCode 等父类方法
             return method.invoke(this, args);
         } else {
-            return sqlSession.selectOne(method.getName(), args);
+            MapperMethod mapperMethod = cacheMapperMethod(method);
+            return mapperMethod.execute(sqlSession,args);
         }
     }
 
