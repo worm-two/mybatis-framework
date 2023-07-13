@@ -1,4 +1,4 @@
-package cn.ming.mybatis;
+package cn.ming.mybatis.io;
 
 import java.io.IOException;
 import java.io.InputStream;

@@ -1,6 +1,6 @@
 package cn.ming.mybatis.session.defaults;
 
-import cn.ming.mybatis.binding.MapperRegistry;
+import cn.ming.mybatis.session.Configuration;
 import cn.ming.mybatis.session.SqlSession;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -26,11 +26,8 @@ import java.util.Map;
 @Slf4j
 public class DefaultSqlSession implements SqlSession {
 
-    // private Connection connection;
-    //
-    // private Map<String, XNode> mapperElement;
+    private Configuration configuration;
 
-    private final MapperRegistry mapperRegistry;
 
     @Override
     public <T> T selectOne(String statement) {
@@ -97,7 +94,12 @@ public class DefaultSqlSession implements SqlSession {
 
     @Override
     public <T> T getMapper(Class<T> type) {
-        return mapperRegistry.getMapper(type,this);
+        return this.configuration.getMapper(type, this);
+    }
+
+    @Override
+    public Configuration getConfiguration() {
+        return this.configuration;
     }
 
     @Override

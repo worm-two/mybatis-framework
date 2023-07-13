@@ -1,5 +1,7 @@
-package cn.ming.mybatis;
+package cn.ming.mybatis.session;
 
+import cn.ming.mybatis.XNode;
+import cn.ming.mybatis.io.Resources;
 import cn.ming.mybatis.session.defaults.DefaultSqlSessionFactory;
 import lombok.extern.slf4j.Slf4j;
 import org.dom4j.Document;

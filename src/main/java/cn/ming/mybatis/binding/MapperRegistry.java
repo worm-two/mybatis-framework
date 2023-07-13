@@ -1,7 +1,9 @@
 package cn.ming.mybatis.binding;
 
 import cn.hutool.core.lang.ClassScanner;
+import cn.ming.mybatis.session.Configuration;
 import cn.ming.mybatis.session.SqlSession;
+import lombok.AllArgsConstructor;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,8 +15,14 @@ import java.util.Set;
  * @Version: 1.0
  * @Description: 映射器注册机
  **/
+@AllArgsConstructor
 public class MapperRegistry {
 
+    private Configuration configuration;
+
+    /**
+     * 将已添加的映射器代理加入到 HashMap
+     */
     private final Map<Class<?>, MapperProxyFactory<?>> knownMappers = new HashMap<>();
 
 

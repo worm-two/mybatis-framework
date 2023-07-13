@@ -19,5 +19,7 @@ public interface SqlSession {
     <T> List<T> selectList(String statement, Object parameter);
     <T> T getMapper(Class<T> type);
 
+    Configuration getConfiguration();
+
     void close();
 }

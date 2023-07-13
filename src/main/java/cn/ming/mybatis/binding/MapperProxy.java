@@ -2,7 +2,6 @@ package cn.ming.mybatis.binding;
 
 import cn.ming.mybatis.session.SqlSession;
 import lombok.AllArgsConstructor;
-import lombok.Data;
 
 import java.io.Serializable;
 import java.lang.reflect.InvocationHandler;
@@ -24,13 +23,27 @@ public class MapperProxy<T> implements InvocationHandler, Serializable {
 
     private final Class<T> mapperInterface;
 
+    private Map<Method, MapperMethod> methodCache;
+
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         if (Object.class.equals(method.getDeclaringClass())) {
             // 调用 toString、equals、hashCode 等父类方法
             return method.invoke(this, args);
         } else {
-            return sqlSession.selectOne(method.getName(),args);
+            return sqlSession.selectOne(method.getName(), args);
         }
+    }
+
+    /**
+     * 去缓存中找MapperMethod
+     */
+    private MapperMethod cacheMapperMethod(Method method) {
+        MapperMethod mapperMethod = methodCache.get(method);
+        if (mapperMethod == null) {
+            mapperMethod = new MapperMethod(mapperInterface, method, sqlSession.getConfiguration());
+            methodCache.put(method, mapperMethod);
+        }
+        return mapperMethod;
     }
 }

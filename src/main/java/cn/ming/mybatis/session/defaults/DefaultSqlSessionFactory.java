@@ -1,6 +1,5 @@
 package cn.ming.mybatis.session.defaults;
 
-import cn.ming.mybatis.Configuration;
 import cn.ming.mybatis.binding.MapperRegistry;
 import cn.ming.mybatis.session.SqlSession;
 import cn.ming.mybatis.session.SqlSessionFactory;

@@ -1,14 +1,13 @@
 package cn.ming.mybatis;
 
-import cn.ming.mybatis.binding.MapperProxy;
 import cn.ming.mybatis.binding.MapperProxyFactory;
 import cn.ming.mybatis.binding.MapperRegistry;
 import cn.ming.mybatis.entity.User;
-import cn.ming.mybatis.mapper.SchoolMapper;
+import cn.ming.mybatis.io.Resources;
 import cn.ming.mybatis.mapper.UserMapper;
 import cn.ming.mybatis.session.SqlSession;
 import cn.ming.mybatis.session.SqlSessionFactory;
-import cn.ming.mybatis.session.defaults.DefaultSqlSession;
+import cn.ming.mybatis.session.SqlSessionFactoryBuilder;
 import cn.ming.mybatis.session.defaults.DefaultSqlSessionFactory;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
