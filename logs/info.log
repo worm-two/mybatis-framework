@@ -7,3 +7,208 @@
 2023-07-15 21:17:09.009  INFO   cn.ming.mybatis.ApiTest                                       行:33     测试结果：User(id=1, userId=10001, userHead=1_04, userName=null, createTime=2022-04-13 00:00:00.0, updateTime=null)
 2023-07-15 21:22:11.011  INFO   com.alibaba.druid.pool.DruidDataSource                        行:996    {dataSource-1} inited
 2023-07-15 21:22:11.011  INFO   cn.ming.mybatis.ApiTest                                       行:33     测试结果：User(id=1, userId=10001, userHead=1_04, userName=null, createTime=2022-04-13 00:00:00.0, updateTime=null)
+2023-07-15 22:02:27.027  INFO   com.alibaba.druid.pool.DruidDataSource                        行:996    {dataSource-1} inited
+2023-07-15 22:02:27.027  INFO   cn.ming.mybatis.ApiTest                                       行:33     测试结果：User(id=1, userId=10001, userHead=1_04, userName=null, createTime=2022-04-13 00:00:00.0, updateTime=null)
+2023-07-15 22:05:42.042  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:216    PooledDataSource forcefully closed/removed all connections.
+2023-07-15 22:05:42.042  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:216    PooledDataSource forcefully closed/removed all connections.
+2023-07-15 22:05:42.042  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:216    PooledDataSource forcefully closed/removed all connections.
+2023-07-15 22:05:42.042  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:216    PooledDataSource forcefully closed/removed all connections.
+2023-07-15 22:05:43.043  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:108    Created connection 626393072.
+2023-07-15 22:05:43.043  INFO   cn.ming.mybatis.ApiTest                                       行:33     测试结果：User(id=1, userId=10001, userHead=1_04, userName=null, createTime=2022-04-13 00:00:00.0, updateTime=null)
+2023-07-15 22:06:29.029  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:216    PooledDataSource forcefully closed/removed all connections.
+2023-07-15 22:06:29.029  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:216    PooledDataSource forcefully closed/removed all connections.
+2023-07-15 22:06:29.029  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:216    PooledDataSource forcefully closed/removed all connections.
+2023-07-15 22:06:29.029  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:216    PooledDataSource forcefully closed/removed all connections.
+2023-07-15 22:06:29.029  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:108    Created connection 626393072.
+2023-07-15 22:06:29.029  INFO   cn.ming.mybatis.ApiTest                                       行:39     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:06:29.029  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:108    Created connection 1688310330.
+2023-07-15 22:06:29.029  INFO   cn.ming.mybatis.ApiTest                                       行:39     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:06:29.029  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:108    Created connection 739210872.
+2023-07-15 22:06:29.029  INFO   cn.ming.mybatis.ApiTest                                       行:39     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:06:29.029  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:108    Created connection 600199331.
+2023-07-15 22:06:29.029  INFO   cn.ming.mybatis.ApiTest                                       行:39     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:06:29.029  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:108    Created connection 1353838640.
+2023-07-15 22:06:29.029  INFO   cn.ming.mybatis.ApiTest                                       行:39     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:06:30.030  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:108    Created connection 65438140.
+2023-07-15 22:06:30.030  INFO   cn.ming.mybatis.ApiTest                                       行:39     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:06:30.030  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:108    Created connection 1599556802.
+2023-07-15 22:06:30.030  INFO   cn.ming.mybatis.ApiTest                                       行:39     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:06:30.030  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:108    Created connection 2114270481.
+2023-07-15 22:06:30.030  INFO   cn.ming.mybatis.ApiTest                                       行:39     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:06:30.030  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:108    Created connection 653337757.
+2023-07-15 22:06:30.030  INFO   cn.ming.mybatis.ApiTest                                       行:39     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:06:30.030  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:108    Created connection 682981033.
+2023-07-15 22:06:30.030  INFO   cn.ming.mybatis.ApiTest                                       行:39     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:06:30.030  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:136    Waiting as long as 20000 milliseconds for connection.
+2023-07-15 22:06:50.050  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:127    Claimed overdue connection 626393072.
+2023-07-15 22:06:50.050  INFO   cn.ming.mybatis.ApiTest                                       行:39     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:06:50.050  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:127    Claimed overdue connection 1688310330.
+2023-07-15 22:06:50.050  INFO   cn.ming.mybatis.ApiTest                                       行:39     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:06:50.050  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:127    Claimed overdue connection 739210872.
+2023-07-15 22:06:50.050  INFO   cn.ming.mybatis.ApiTest                                       行:39     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:06:50.050  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:127    Claimed overdue connection 600199331.
+2023-07-15 22:06:50.050  INFO   cn.ming.mybatis.ApiTest                                       行:39     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:06:50.050  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:127    Claimed overdue connection 1353838640.
+2023-07-15 22:06:50.050  INFO   cn.ming.mybatis.ApiTest                                       行:39     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:06:50.050  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:127    Claimed overdue connection 65438140.
+2023-07-15 22:06:50.050  INFO   cn.ming.mybatis.ApiTest                                       行:39     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:06:50.050  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:127    Claimed overdue connection 1599556802.
+2023-07-15 22:06:50.050  INFO   cn.ming.mybatis.ApiTest                                       行:39     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:06:50.050  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:127    Claimed overdue connection 2114270481.
+2023-07-15 22:06:50.050  INFO   cn.ming.mybatis.ApiTest                                       行:39     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:06:50.050  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:127    Claimed overdue connection 653337757.
+2023-07-15 22:06:50.050  INFO   cn.ming.mybatis.ApiTest                                       行:39     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:06:50.050  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:127    Claimed overdue connection 682981033.
+2023-07-15 22:06:50.050  INFO   cn.ming.mybatis.ApiTest                                       行:39     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:06:50.050  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:136    Waiting as long as 20000 milliseconds for connection.
+2023-07-15 22:07:37.037  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:216    PooledDataSource forcefully closed/removed all connections.
+2023-07-15 22:07:37.037  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:216    PooledDataSource forcefully closed/removed all connections.
+2023-07-15 22:07:37.037  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:216    PooledDataSource forcefully closed/removed all connections.
+2023-07-15 22:07:37.037  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:216    PooledDataSource forcefully closed/removed all connections.
+2023-07-15 22:07:38.038  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:108    Created connection 626393072.
+2023-07-15 22:07:38.038  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:07:38.038  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:108    Created connection 1688310330.
+2023-07-15 22:07:38.038  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:07:38.038  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:108    Created connection 739210872.
+2023-07-15 22:07:38.038  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:07:38.038  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:108    Created connection 600199331.
+2023-07-15 22:07:38.038  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:07:38.038  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:108    Created connection 1353838640.
+2023-07-15 22:07:38.038  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:07:38.038  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:108    Created connection 65438140.
+2023-07-15 22:07:38.038  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:07:38.038  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:108    Created connection 1599556802.
+2023-07-15 22:07:38.038  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:07:38.038  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:108    Created connection 2114270481.
+2023-07-15 22:07:38.038  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:07:38.038  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:108    Created connection 653337757.
+2023-07-15 22:07:38.038  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:07:38.038  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:108    Created connection 682981033.
+2023-07-15 22:07:38.038  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:07:38.038  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:136    Waiting as long as 20000 milliseconds for connection.
+2023-07-15 22:07:58.058  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:127    Claimed overdue connection 626393072.
+2023-07-15 22:07:58.058  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:07:58.058  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:127    Claimed overdue connection 1688310330.
+2023-07-15 22:07:58.058  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:07:58.058  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:127    Claimed overdue connection 739210872.
+2023-07-15 22:07:58.058  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:07:58.058  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:127    Claimed overdue connection 600199331.
+2023-07-15 22:07:58.058  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:07:58.058  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:127    Claimed overdue connection 1353838640.
+2023-07-15 22:07:58.058  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:07:58.058  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:127    Claimed overdue connection 65438140.
+2023-07-15 22:07:58.058  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:07:58.058  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:127    Claimed overdue connection 1599556802.
+2023-07-15 22:07:58.058  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:07:58.058  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:127    Claimed overdue connection 2114270481.
+2023-07-15 22:07:58.058  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:07:58.058  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:127    Claimed overdue connection 653337757.
+2023-07-15 22:07:58.058  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:07:58.058  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:127    Claimed overdue connection 682981033.
+2023-07-15 22:07:58.058  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:07:58.058  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:136    Waiting as long as 20000 milliseconds for connection.
+2023-07-15 22:09:04.004  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:04.004  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:04.004  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:04.004  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:04.004  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:04.004  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:04.004  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:04.004  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:04.004  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:04.004  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:04.004  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:04.004  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:04.004  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:04.004  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:04.004  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:04.004  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:04.004  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:04.004  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:04.004  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:04.004  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:04.004  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:04.004  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:04.004  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:04.004  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:04.004  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:04.004  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:04.004  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:04.004  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:04.004  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:04.004  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:04.004  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:04.004  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:04.004  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:04.004  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:04.004  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:04.004  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:04.004  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:04.004  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:04.004  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:04.004  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:04.004  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:04.004  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:04.004  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:04.004  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:04.004  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:04.004  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:04.004  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:04.004  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:04.004  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:04.004  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:31.031  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:216    PooledDataSource forcefully closed/removed all connections.
+2023-07-15 22:09:31.031  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:216    PooledDataSource forcefully closed/removed all connections.
+2023-07-15 22:09:31.031  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:216    PooledDataSource forcefully closed/removed all connections.
+2023-07-15 22:09:31.031  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:216    PooledDataSource forcefully closed/removed all connections.
+2023-07-15 22:09:31.031  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:108    Created connection 626393072.
+2023-07-15 22:09:31.031  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:31.031  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:108    Created connection 1688310330.
+2023-07-15 22:09:31.031  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:31.031  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:108    Created connection 739210872.
+2023-07-15 22:09:31.031  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:31.031  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:108    Created connection 600199331.
+2023-07-15 22:09:31.031  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:31.031  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:108    Created connection 1353838640.
+2023-07-15 22:09:31.031  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:31.031  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:108    Created connection 65438140.
+2023-07-15 22:09:31.031  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:31.031  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:108    Created connection 1599556802.
+2023-07-15 22:09:31.031  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:31.031  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:108    Created connection 2114270481.
+2023-07-15 22:09:31.031  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:31.031  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:108    Created connection 653337757.
+2023-07-15 22:09:31.031  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:31.031  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:108    Created connection 682981033.
+2023-07-15 22:09:31.031  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:31.031  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:136    Waiting as long as 20000 milliseconds for connection.
+2023-07-15 22:09:51.051  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:127    Claimed overdue connection 626393072.
+2023-07-15 22:09:51.051  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:51.051  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:127    Claimed overdue connection 1688310330.
+2023-07-15 22:09:51.051  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:51.051  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:127    Claimed overdue connection 739210872.
+2023-07-15 22:09:51.051  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:51.051  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:127    Claimed overdue connection 600199331.
+2023-07-15 22:09:51.051  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:51.051  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:127    Claimed overdue connection 1353838640.
+2023-07-15 22:09:51.051  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:51.051  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:127    Claimed overdue connection 65438140.
+2023-07-15 22:09:51.051  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:51.051  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:127    Claimed overdue connection 1599556802.
+2023-07-15 22:09:51.051  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:51.051  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:127    Claimed overdue connection 2114270481.
+2023-07-15 22:09:51.051  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:51.051  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:127    Claimed overdue connection 653337757.
+2023-07-15 22:09:51.051  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:51.051  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:127    Claimed overdue connection 682981033.
+2023-07-15 22:09:51.051  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:09:51.051  INFO   cn.ming.mybatis.datasource.pooled.PooledDataSource            行:136    Waiting as long as 20000 milliseconds for connection.
+2023-07-15 22:10:34.034  INFO   com.alibaba.druid.pool.DruidDataSource                        行:996    {dataSource-1} inited
+2023-07-15 22:10:34.034  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:10:34.034  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:10:34.034  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:10:34.034  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:10:34.034  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:10:34.034  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:10:35.035  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
+2023-07-15 22:10:35.035  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
