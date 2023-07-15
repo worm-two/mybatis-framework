@@ -50,6 +50,10 @@ public class XMLConfigBuilder extends BaseBuilder {
 
     public static final String DELETE = "delete";
 
+    private static final String DEFAULT = "default";
+
+    public static final String ENVIRONMENT = "environment";
+
 
     private Element root;
 
@@ -75,6 +79,18 @@ public class XMLConfigBuilder extends BaseBuilder {
             throw new RuntimeException("Error parsing SQL Mapper Configuration. Cause: " + e, e);
         }
         return configuration;
+    }
+
+    private void environmentsElement(Element context) throws Exception {
+        String environment = context.attributeValue(DEFAULT);
+        List<Element> environmentList = context.elements(ENVIRONMENT);
+
+        for (Element e : environmentList) {
+            String id = e.attributeValue(ID);
+            if (environment.equals(id)) {
+
+            }
+        }
     }
 
     private void mapperElement(Element mappers) throws Exception {
