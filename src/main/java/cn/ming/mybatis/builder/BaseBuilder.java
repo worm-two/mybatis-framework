@@ -1,8 +1,7 @@
 package cn.ming.mybatis.builder;
 
 import cn.ming.mybatis.session.Configuration;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
+import cn.ming.mybatis.type.TypeAliasRegistry;
 
 /**
  * @Author: xuming
@@ -10,9 +9,14 @@ import lombok.Getter;
  * @Version: 1.0
  * @Description: 构建器的基类，建造者模式
  **/
-@AllArgsConstructor
-@Getter
 public abstract class BaseBuilder {
 
     protected final Configuration configuration;
+
+    protected final TypeAliasRegistry typeAliasRegistry;
+
+    public BaseBuilder(Configuration configuration) {
+        this.configuration = configuration;
+        this.typeAliasRegistry = this.configuration.getTypeAliasRegistry();
+    }
 }

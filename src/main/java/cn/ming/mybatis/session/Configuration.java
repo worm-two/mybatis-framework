@@ -1,7 +1,11 @@
 package cn.ming.mybatis.session;
 
 import cn.ming.mybatis.binding.MapperRegistry;
+import cn.ming.mybatis.datasource.druid.DruidDataSourceFactory;
+import cn.ming.mybatis.mapping.Environment;
 import cn.ming.mybatis.mapping.MappedStatement;
+import cn.ming.mybatis.transaction.jdbc.JdbcTransactionFactory;
+import cn.ming.mybatis.type.TypeAliasRegistry;
 import lombok.Setter;
 
 import java.util.HashMap;
@@ -11,10 +15,12 @@ import java.util.Map;
  * @Author: xuming
  * @Date: 2023-07-08 16:29
  * @Version: 1.0
- * @Description: Mybatis配置数据持有类
+ * @Description: 配置项
  **/
 @Setter
 public class Configuration {
+
+    protected Environment environment;
 
     /**
      * 映射注册机
@@ -26,6 +32,13 @@ public class Configuration {
      */
     protected final Map<String, MappedStatement> mappedStatements = new HashMap<>();
 
+    protected final TypeAliasRegistry typeAliasRegistry = new TypeAliasRegistry();
+
+    public Configuration() {
+        typeAliasRegistry.registerAlias("JDBC", JdbcTransactionFactory.class);
+        typeAliasRegistry.registerAlias("DRUID", DruidDataSourceFactory.class);
+    }
+
     public void addMappers(String packageName) {
         mapperRegistry.addMappers(packageName);
     }
@@ -34,13 +47,10 @@ public class Configuration {
         mapperRegistry.addMapper(Type);
     }
 
-    public <T> T addMapper(Class<T> Type, SqlSession sqlSession) {
-        return mapperRegistry.getMapper(Type, sqlSession);
-    }
-
     public <T> T getMapper(Class<T> type, SqlSession sqlSession) {
         return this.mapperRegistry.getMapper(type, sqlSession);
     }
+
     public boolean hasMapper(Class<?> type) {
         return mapperRegistry.hasMapper(type);
     }
@@ -51,5 +61,14 @@ public class Configuration {
 
     public MappedStatement getMappedStatement(String id) {
         return mappedStatements.get(id);
+    }
+
+
+    public TypeAliasRegistry getTypeAliasRegistry() {
+        return typeAliasRegistry;
+    }
+
+    public Environment getEnvironment() {
+        return environment;
     }
 }
