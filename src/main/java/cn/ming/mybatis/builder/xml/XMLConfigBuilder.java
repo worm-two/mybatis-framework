@@ -76,8 +76,10 @@ public class XMLConfigBuilder extends BaseBuilder {
     // 解析配置；类型别名、插件、对象工厂、对象包装工厂、设置、环境、类型转换、映射器
     public Configuration parse() {
         try {
-            // 解析mapper映射器
-            mapperElement(root.element(MAPPERS));
+            // 环境
+            environmentsElement(root.element("environments"));
+            // 解析映射器
+            mapperElement(root.element("mappers"));
         } catch (Exception e) {
             throw new RuntimeException("Error parsing SQL Mapper Configuration. Cause: " + e, e);
         }

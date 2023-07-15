@@ -1,8 +1,0 @@
-2023-07-13 22:11:48.048  INFO   cn.ming.mybatis.ApiTest                                       行:32     测试结果：你的操作被代理了！
-方法：cn.ming.mybatis.mapper.UserMapper.queryUserInfoById
-入参：[Ljava.lang.Object;@1458ed9c
-待执行SQL：
-        SELECT id, userId, userHead, createTime
-        FROM user
-        where id = ?
-    

@@ -20,5 +20,5 @@ public interface UserMapper {
     //
     // Integer queryUserAge(String uId);
 
-    String queryUserInfoById(String userId);
+    User queryUserInfoById(Long userId);
 }

@@ -1,5 +1,6 @@
 package cn.ming.mybatis;
 
+import cn.ming.mybatis.entity.User;
 import cn.ming.mybatis.io.Resources;
 import cn.ming.mybatis.mapper.UserMapper;
 import cn.ming.mybatis.session.SqlSession;
@@ -28,7 +29,7 @@ public class ApiTest {
         // 2.获取映射器对象
         UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
         // 3.测试验证
-        String s = userMapper.queryUserInfoById("10001");
+        User s = userMapper.queryUserInfoById(1L);
         log.info("测试结果：{}", s);
     }
 }

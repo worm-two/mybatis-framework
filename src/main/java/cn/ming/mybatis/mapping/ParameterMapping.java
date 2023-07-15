@@ -2,6 +2,7 @@ package cn.ming.mybatis.mapping;
 
 import cn.ming.mybatis.session.Configuration;
 import cn.ming.mybatis.type.JdbcType;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,6 +16,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @Getter
+@AllArgsConstructor
 public class ParameterMapping {
 
     private Configuration configuration;
@@ -24,4 +26,5 @@ public class ParameterMapping {
     private Class<?> javaType = Object.class;
 
     private JdbcType jdbcType;
+
 }
