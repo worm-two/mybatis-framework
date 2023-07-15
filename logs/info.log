@@ -1,0 +1,9 @@
+2023-07-15 21:08:50.050  INFO   com.alibaba.druid.pool.DruidDataSource                        行:996    {dataSource-1} inited
+2023-07-15 21:08:50.050  INFO   cn.ming.mybatis.ApiTest                                       行:33     测试结果：User(id=1, userId=10001, userHead=1_04, userName=null, createTime=2022-04-13 00:00:00.0, updateTime=null)
+2023-07-15 21:13:01.001  INFO   com.alibaba.druid.pool.DruidDataSource                        行:996    {dataSource-1} inited
+2023-07-15 21:13:01.001  INFO   cn.ming.mybatis.ApiTest                                       行:33     测试结果：User(id=1, userId=10001, userHead=1_04, userName=null, createTime=2022-04-13 00:00:00.0, updateTime=null)
+2023-07-15 21:16:10.010  INFO   com.alibaba.druid.pool.DruidDataSource                        行:996    {dataSource-1} inited
+2023-07-15 21:17:08.008  INFO   com.alibaba.druid.pool.DruidDataSource                        行:996    {dataSource-1} inited
+2023-07-15 21:17:09.009  INFO   cn.ming.mybatis.ApiTest                                       行:33     测试结果：User(id=1, userId=10001, userHead=1_04, userName=null, createTime=2022-04-13 00:00:00.0, updateTime=null)
+2023-07-15 21:22:11.011  INFO   com.alibaba.druid.pool.DruidDataSource                        行:996    {dataSource-1} inited
+2023-07-15 21:22:11.011  INFO   cn.ming.mybatis.ApiTest                                       行:33     测试结果：User(id=1, userId=10001, userHead=1_04, userName=null, createTime=2022-04-13 00:00:00.0, updateTime=null)
