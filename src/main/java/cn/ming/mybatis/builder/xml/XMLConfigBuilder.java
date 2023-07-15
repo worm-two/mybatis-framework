@@ -1,10 +1,14 @@
 package cn.ming.mybatis.builder.xml;
 
 import cn.ming.mybatis.builder.BaseBuilder;
+import cn.ming.mybatis.datasource.DataSourceFactory;
 import cn.ming.mybatis.io.Resources;
+import cn.ming.mybatis.mapping.BoundSql;
+import cn.ming.mybatis.mapping.Environment;
 import cn.ming.mybatis.mapping.MappedStatement;
 import cn.ming.mybatis.mapping.SqlCommandType;
 import cn.ming.mybatis.session.Configuration;
+import cn.ming.mybatis.transaction.TransactionFactory;
 import lombok.extern.slf4j.Slf4j;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
@@ -12,11 +16,10 @@ import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 import org.xml.sax.InputSource;
 
+import javax.sql.DataSource;
 import java.io.Reader;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
+import java.lang.reflect.Constructor;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -88,7 +91,25 @@ public class XMLConfigBuilder extends BaseBuilder {
         for (Element e : environmentList) {
             String id = e.attributeValue(ID);
             if (environment.equals(id)) {
-
+                // 事务管理
+                Constructor<Object> constructor = typeAliasRegistry.resolveAlias(e.element("transactionManager").attributeValue("type")).getConstructor();
+                TransactionFactory txFactory = (TransactionFactory) constructor.newInstance();
+                // 数据源
+                Element dataSourceElement = e.element("dataSource");
+                Constructor<Object> c = typeAliasRegistry.resolveAlias(dataSourceElement.attributeValue("type")).getConstructor();
+                DataSourceFactory dataSourceFactory = (DataSourceFactory) c.newInstance();
+                List<Element> propertyList = dataSourceElement.elements("property");
+                Properties props = new Properties();
+                for (Element property : propertyList) {
+                    props.setProperty(property.attributeValue("name"), property.attributeValue("value"));
+                }
+                dataSourceFactory.setProperties(props);
+                DataSource dataSource = dataSourceFactory.getDataSource();
+                // 构建环境
+                Environment env = new Environment.Builder(id)
+                        .transactionFactory(txFactory)
+                        .dataSource(dataSource).build();
+                configuration.setEnvironment(env);
             }
         }
     }
@@ -125,14 +146,12 @@ public class XMLConfigBuilder extends BaseBuilder {
                 String msId = namespace + "." + id;
                 String nodeName = node.getName();
                 SqlCommandType sqlCommandType = SqlCommandType.valueOf(nodeName.toUpperCase(Locale.ENGLISH));
+                BoundSql boundSql = new BoundSql(sql, parameter, parameterType, resultType);
                 MappedStatement mappedStatement = new MappedStatement().builder()
                         .configuration(configuration)
                         .id(msId)
                         .sqlCommandType(sqlCommandType)
-                        .parameter(parameter)
-                        .parameterType(parameterType)
-                        .resultType(resultType)
-                        .sql(sql)
+                        .boundSql(boundSql)
                         .build();
                 // 添加解析SQL
                 configuration.addMappedStatement(mappedStatement);
@@ -141,5 +160,4 @@ public class XMLConfigBuilder extends BaseBuilder {
             configuration.addMapper(Resources.classForName(namespace));
         }
     }
-
 }
