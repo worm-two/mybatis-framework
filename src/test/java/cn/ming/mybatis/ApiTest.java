@@ -34,11 +34,11 @@ public class ApiTest {
         // log.info("测试结果：{}", s);
 
         // 3. 测试验证
-        // for (int i = 0; i < 50; i++) {
-        //     System.out.println("i = " + i);
-        //     User user = userMapper.queryUserInfoById(1L);
-        //     log.info("测试结果：{}", JSON.toJSONString(user));
-        //     System.out.println("-----------------");
-        // }
+        for (int i = 0; i < 50; i++) {
+            System.out.println("i = " + i);
+            User user = userMapper.queryUserInfoById(1L);
+            log.info("测试结果：{}", JSON.toJSONString(user));
+            System.out.println("-----------------");
+        }
     }
 }
