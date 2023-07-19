@@ -5,7 +5,7 @@
 <mapper namespace="cn.ming.mybatis.mapper.UserMapper">
 
     <select id="queryUserInfoById" parameterType="java.lang.Long" resultType="cn.ming.mybatis.entity.User">
-        SELECT id, userId, userHead, createTime
+        SELECT id, userId, userHead, createTime,userName,updateTime
         FROM user
         where id = #{id}
     </select>

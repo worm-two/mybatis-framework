@@ -1,11 +1,14 @@
-2023-07-16 13:30:48.048  INFO   com.alibaba.druid.pool.DruidDataSource                        行:996    {dataSource-1} inited
-2023-07-16 13:30:48.048  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
-2023-07-16 13:30:48.048  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
-2023-07-16 13:30:48.048  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
-2023-07-16 13:30:48.048  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
-2023-07-16 13:30:48.048  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
-2023-07-16 13:30:48.048  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
-2023-07-16 13:30:48.048  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
-2023-07-16 13:30:48.048  INFO   cn.ming.mybatis.ApiTest                                       行:40     测试结果：{"createTime":1649779200000,"id":1,"userHead":"1_04","userId":"10001"}
-2023-07-16 13:31:01.001  INFO   com.alibaba.druid.pool.DruidDataSource                        行:996    {dataSource-1} inited
-2023-07-16 13:31:01.001  INFO   cn.ming.mybatis.ApiTest                                       行:34     测试结果：User(id=1, userId=10001, userHead=1_04, userName=null, createTime=2022-04-13 00:00:00.0, updateTime=null)
+2023-07-19 21:29:38.038  INFO   cn.ming.mybatis.ReflectorTest                                 行:35     getGetterNames：["student","price","name","students"]
+2023-07-19 21:29:38.038  INFO   cn.ming.mybatis.ReflectorTest                                 行:36     getSetterNames：["student","price","name","students"]
+2023-07-19 21:29:38.038  INFO   cn.ming.mybatis.ReflectorTest                                 行:37     name的get方法返回值："java.lang.String"
+2023-07-19 21:29:38.038  INFO   cn.ming.mybatis.ReflectorTest                                 行:38     students的set方法参数值："java.util.List"
+2023-07-19 21:29:38.038  INFO   cn.ming.mybatis.ReflectorTest                                 行:39     name的hasGetter：true
+2023-07-19 21:29:38.038  INFO   cn.ming.mybatis.ReflectorTest                                 行:40     student.id（属性为对象）的hasGetter：true
+2023-07-19 21:29:38.038  INFO   cn.ming.mybatis.ReflectorTest                                 行:41     获取name的属性值：小傅哥
+2023-07-19 21:29:38.038  INFO   cn.ming.mybatis.ReflectorTest                                 行:44     设置name的属性值：小白
+2023-07-19 21:29:38.038  INFO   cn.ming.mybatis.ReflectorTest                                 行:47     获取students集合的第一个元素的属性值："001"
+2023-07-19 21:29:38.038  INFO   cn.ming.mybatis.ReflectorTest                                 行:48     对象的序列化：{"name":"小白","price":0.0,"students":[{"id":"001"}]}
+2023-07-19 21:31:22.022  INFO   com.alibaba.druid.pool.DruidDataSource                        行:996    {dataSource-1} inited
+2023-07-19 21:31:22.022  INFO   cn.ming.mybatis.ApiTest                                       行:34     测试结果：User(id=1, userId=10001, userHead=1_04, userName=null, createTime=2022-04-13 00:00:00.0, updateTime=null)
+2023-07-19 21:32:47.047  INFO   com.alibaba.druid.pool.DruidDataSource                        行:996    {dataSource-1} inited
+2023-07-19 21:32:47.047  INFO   cn.ming.mybatis.ApiTest                                       行:34     测试结果：User(id=1, userId=10001, userHead=1_04, userName=小傅哥, createTime=2022-04-13 00:00:00.0, updateTime=2022-04-13 00:00:00.0)
