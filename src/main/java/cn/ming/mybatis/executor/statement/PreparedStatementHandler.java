@@ -35,10 +35,9 @@ public class PreparedStatementHandler extends BaseStatementHandler {
         ps.setLong(1, Long.parseLong(((Object[]) parameterObject)[0].toString()));
     }
 
-
     @Override
     public <E> List<E> query(Statement statement, ResultHandler resultHandler) throws SQLException {
-        PreparedStatement ps =(PreparedStatement) statement;
+        PreparedStatement ps = (PreparedStatement) statement;
         ps.execute();
         return resultSetHandler.<E>handleResultSets(ps);
     }

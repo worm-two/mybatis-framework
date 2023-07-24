@@ -21,37 +21,36 @@ import java.util.List;
  * @Version: 1.0
  * @Description: 默认会话实现类
  **/
-@Data
-@AllArgsConstructor
-@Slf4j
 public class DefaultSqlSession implements SqlSession {
 
     private Configuration configuration;
-
     private Executor executor;
 
+    public DefaultSqlSession(Configuration configuration, Executor executor) {
+        this.configuration = configuration;
+        this.executor = executor;
+    }
 
     @Override
     public <T> T selectOne(String statement) {
         return this.selectOne(statement, null);
     }
 
-
     @Override
     public <T> T selectOne(String statement, Object parameter) {
-        MappedStatement mappedStatement = configuration.getMappedStatement(statement);
-        List<T> list = executor.query(mappedStatement, parameter, Executor.NO_RESULT_HANDLER, mappedStatement.getBoundSql());
+        MappedStatement ms = configuration.getMappedStatement(statement);
+        List<T> list = executor.query(ms, parameter, Executor.NO_RESULT_HANDLER, ms.getSqlSource().getBoundSql(parameter));
         return list.get(0);
     }
 
     @Override
     public <T> T getMapper(Class<T> type) {
-        return this.configuration.getMapper(type, this);
+        return configuration.getMapper(type, this);
     }
 
     @Override
     public Configuration getConfiguration() {
-        return this.configuration;
+        return configuration;
     }
 
 }

@@ -18,34 +18,30 @@ import java.util.List;
  * @Version: 1.0
  * @Description: 默认Map结果处理器
  **/
-@Slf4j
 public class DefaultResultSetHandler implements ResultSetHandler {
 
     private final BoundSql boundSql;
+    private final MappedStatement mappedStatement;
 
     public DefaultResultSetHandler(Executor executor, MappedStatement mappedStatement, BoundSql boundSql) {
         this.boundSql = boundSql;
+        this.mappedStatement = mappedStatement;
     }
 
     @Override
-    public <E> List<E> handleResultSets(Statement statement) throws SQLException {
-        ResultSet resultSet = statement.getResultSet();
-        try {
-            return resultMapping(resultSet, Class.forName(boundSql.getResultType()));
-        } catch (Exception e) {
-            log.error("error:", e);
-            return null;
-        }
+    public <E> List<E> handleResultSets(Statement stmt) throws SQLException {
+        ResultSet resultSet = stmt.getResultSet();
+        return resultSet2Obj(resultSet, mappedStatement.getResultType());
     }
 
-    private <T> List<T> resultMapping(ResultSet resultSet, Class<?> clazz) {
-        List<T> result = new ArrayList<>();
+    private <T> List<T> resultSet2Obj(ResultSet resultSet, Class<?> clazz) {
+        List<T> list = new ArrayList<>();
         try {
             ResultSetMetaData metaData = resultSet.getMetaData();
             int columnCount = metaData.getColumnCount();
+            // 每次遍历行值
             while (resultSet.next()) {
-                Constructor<?> constructor = clazz.getConstructor();
-                T obj = (T) constructor.newInstance();
+                T obj = (T) clazz.newInstance();
                 for (int i = 1; i <= columnCount; i++) {
                     Object value = resultSet.getObject(i);
                     String columnName = metaData.getColumnName(i);
@@ -58,11 +54,11 @@ public class DefaultResultSetHandler implements ResultSetHandler {
                     }
                     method.invoke(obj, value);
                 }
-                result.add(obj);
+                list.add(obj);
             }
         } catch (Exception e) {
-            log.error("error:", e);
+            e.printStackTrace();
         }
-        return result;
+        return list;
     }
 }
