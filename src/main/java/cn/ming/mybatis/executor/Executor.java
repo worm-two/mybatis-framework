@@ -4,6 +4,7 @@ import cn.ming.mybatis.mapping.BoundSql;
 import cn.ming.mybatis.mapping.MappedStatement;
 import cn.ming.mybatis.session.ResultHandler;
 import cn.ming.mybatis.transaction.Transaction;
+import cn.ming.mybatis.session.RowBounds;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -18,7 +19,7 @@ public interface Executor {
 
     ResultHandler NO_RESULT_HANDLER = null;
 
-    <E> List<E> query(MappedStatement ms, Object parameter, ResultHandler resultHandler, BoundSql boundSql);
+    <E> List<E> query(MappedStatement ms, Object parameter, RowBounds rowBounds, ResultHandler resultHandler, BoundSql boundSql);
 
     Transaction getTransaction();
 
@@ -27,4 +28,5 @@ public interface Executor {
     void rollback(boolean required) throws SQLException;
 
     void close(boolean forceRollback);
+
 }

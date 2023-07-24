@@ -5,7 +5,8 @@ import cn.ming.mybatis.mapping.MappedStatement;
 import cn.ming.mybatis.session.Configuration;
 import cn.ming.mybatis.session.ResultHandler;
 import cn.ming.mybatis.transaction.Transaction;
-import lombok.extern.slf4j.Slf4j;
+import cn.ming.mybatis.session.RowBounds;
+import org.slf4j.LoggerFactory;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -16,9 +17,9 @@ import java.util.List;
  * @Version: 1.0
  * @Description: 执行器抽象基类
  **/
-@Slf4j
 public abstract class BaseExecutor implements Executor {
 
+    private org.slf4j.Logger logger = LoggerFactory.getLogger(BaseExecutor.class);
 
     protected Configuration configuration;
     protected Transaction transaction;
@@ -33,14 +34,14 @@ public abstract class BaseExecutor implements Executor {
     }
 
     @Override
-    public <E> List<E> query(MappedStatement ms, Object parameter, ResultHandler resultHandler, BoundSql boundSql) {
+    public <E> List<E> query(MappedStatement ms, Object parameter, RowBounds rowBounds, ResultHandler resultHandler, BoundSql boundSql) {
         if (closed) {
             throw new RuntimeException("Executor was closed.");
         }
-        return doQuery(ms, parameter, resultHandler, boundSql);
+        return doQuery(ms, parameter, rowBounds, resultHandler, boundSql);
     }
 
-    protected abstract <E> List<E> doQuery(MappedStatement ms, Object parameter, ResultHandler resultHandler, BoundSql boundSql);
+    protected abstract <E> List<E> doQuery(MappedStatement ms, Object parameter, RowBounds rowBounds, ResultHandler resultHandler, BoundSql boundSql);
 
     @Override
     public Transaction getTransaction() {
@@ -78,10 +79,11 @@ public abstract class BaseExecutor implements Executor {
                 transaction.close();
             }
         } catch (SQLException e) {
-            log.warn("Unexpected exception on closing transaction.  Cause: " + e);
+            logger.warn("Unexpected exception on closing transaction.  Cause: " + e);
         } finally {
             transaction = null;
             closed = true;
         }
     }
+
 }
