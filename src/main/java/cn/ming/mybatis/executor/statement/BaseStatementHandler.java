@@ -1,6 +1,7 @@
 package cn.ming.mybatis.executor.statement;
 
 import cn.ming.mybatis.executor.Executor;
+import cn.ming.mybatis.executor.parameter.ParameterHandler;
 import cn.ming.mybatis.executor.resultset.ResultSetHandler;
 import cn.ming.mybatis.mapping.BoundSql;
 import cn.ming.mybatis.mapping.MappedStatement;
@@ -18,9 +19,7 @@ import java.sql.Statement;
  * @Version: 1.0
  * @Description: 语句处理器抽象基类
  **/
-@Slf4j
 public abstract class BaseStatementHandler implements StatementHandler {
-
 
     protected final Configuration configuration;
     protected final Executor executor;
@@ -28,6 +27,7 @@ public abstract class BaseStatementHandler implements StatementHandler {
 
     protected final Object parameterObject;
     protected final ResultSetHandler resultSetHandler;
+    protected final ParameterHandler parameterHandler;
 
     protected BoundSql boundSql;
 
@@ -38,9 +38,9 @@ public abstract class BaseStatementHandler implements StatementHandler {
         this.boundSql = boundSql;
 
         this.parameterObject = parameterObject;
+        this.parameterHandler = configuration.newParameterHandler(mappedStatement, parameterObject, boundSql);
         this.resultSetHandler = configuration.newResultSetHandler(executor, mappedStatement, boundSql);
     }
-
 
     @Override
     public Statement prepare(Connection connection) throws SQLException {
@@ -53,7 +53,6 @@ public abstract class BaseStatementHandler implements StatementHandler {
             statement.setFetchSize(10000);
             return statement;
         } catch (Exception e) {
-            log.error("error:", e);
             throw new RuntimeException("Error preparing statement.  Cause: " + e, e);
         }
     }
