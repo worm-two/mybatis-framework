@@ -12,6 +12,9 @@ import cn.ming.mybatis.test.po.Activity;
 import cn.ming.mybatis.transaction.Transaction;
 import cn.ming.mybatis.transaction.TransactionFactory;
 import com.alibaba.fastjson.JSON;
+import ognl.Ognl;
+import ognl.OgnlContext;
+import ognl.OgnlException;
 import org.aspectj.lang.annotation.Before;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -26,71 +29,39 @@ public class ApiTest {
 
     private Logger logger = LoggerFactory.getLogger(ApiTest.class);
 
-    private SqlSession sqlSession;
-
-    @BeforeEach
-    public void init() throws IOException {
+    @Test
+    public void test_queryActivityById() throws IOException {
         // 1. 从SqlSessionFactory中获取SqlSession
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(Resources.getResourceAsReader("mybatis-config-datasource.xml"));
-        sqlSession = sqlSessionFactory.openSession();
-    }
-
-    @Test
-    public void test_queryActivityById() {
-        // 1. 获取映射器对象
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        // 2. 获取映射器对象
         IActivityDao dao = sqlSession.getMapper(IActivityDao.class);
-        // 2. 测试验证
-        Activity res = dao.queryActivityById(100001L);
+        // 3. 测试验证
+        Activity req = new Activity();
+        req.setActivityId(100001L);
+        req.setActivityDesc("测试活动");
+        Activity res = dao.queryActivityById(req);
         logger.info("测试结果：{}", JSON.toJSONString(res));
     }
 
     @Test
-    public void test_insert() {
-        // 1. 获取映射器对象
-        IActivityDao dao = sqlSession.getMapper(IActivityDao.class);
+    public void test_ognl() throws OgnlException {
+        Activity req = new Activity();
+        req.setActivityId(1L);
+        req.setActivityName("测试活动");
+        req.setActivityDesc("小傅哥的测试内容");
 
-        Activity activity = new Activity();
-        activity.setActivityId(10004L);
-        activity.setActivityName("测试活动");
-        activity.setActivityDesc("测试数据插入");
-        activity.setCreator("西经无缺");
+        OgnlContext context = new OgnlContext();
+        context.setRoot(req);
+        Object root = context.getRoot();
 
-        // 2. 测试验证
-        Integer res = dao.insert(activity);
-        sqlSession.commit();
+        Object activityName = Ognl.getValue("activityName", context, root);
+        Object activityDesc = Ognl.getValue("activityDesc", context, root);
+        Object value = Ognl.getValue("activityDesc.length()", context, root);
 
-        logger.info("测试结果：count：{} idx：{}", res, JSON.toJSONString(activity.getId()));
+        System.out.println(activityName + "\t" + activityDesc + " length：" + value);
     }
 
-    @Test
-    public void test_insert_select() throws IOException {
-        // 解析 XML
-        Reader reader = Resources.getResourceAsReader("mybatis-config-datasource.xml");
-        XMLConfigBuilder xmlConfigBuilder = new XMLConfigBuilder(reader);
-        Configuration configuration = xmlConfigBuilder.parse();
-
-        // 获取 DefaultSqlSession
-        final Environment environment = configuration.getEnvironment();
-        TransactionFactory transactionFactory = environment.getTransactionFactory();
-        Transaction tx = transactionFactory.newTransaction(configuration.getEnvironment().getDataSource(), TransactionIsolationLevel.READ_COMMITTED, false);
-
-        // 创建执行器
-        final Executor executor = configuration.newExecutor(tx);
-        SqlSession sqlSession = new DefaultSqlSession(configuration, executor);
-
-        // 执行查询：默认是一个集合参数
-        Activity activity = new Activity();
-        activity.setActivityId(10004L);
-        activity.setActivityName("测试活动");
-        activity.setActivityDesc("测试数据插入");
-        activity.setCreator("xiaofuge");
-        int res = sqlSession.insert("cn.ming.mybatis.test.dao.IActivityDao.insert", activity);
-
-        Object obj = sqlSession.selectOne("cn.ming.mybatis.test.dao.IActivityDao.insert!selectKey");
-        logger.info("测试结果：count：{} idx：{}", res, JSON.toJSONString(obj));
-
-        sqlSession.commit();
-    }
 
 
 

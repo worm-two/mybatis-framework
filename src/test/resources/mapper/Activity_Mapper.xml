@@ -11,21 +11,17 @@
         <result column="update_time" property="updateTime"/>
     </resultMap>
 
-    <select id="queryActivityById" parameterType="java.lang.Long" resultMap="activityMap">
+    <select id="queryActivityById" parameterType="cn.ming.mybatis.test.po.Activity" resultMap="activityMap">
         SELECT activity_id, activity_name, activity_desc, create_time, update_time
         FROM activity
-        WHERE activity_id = #{activityId}
+        <trim prefix="WHERE" prefixOverrides="AND | OR" suffixOverrides="and">
+            <if test="null != activityId">
+                and activity_id = #{activityId}
+            </if>
+            <if test="null != activityDesc">
+                or activity_desc like concat('$',#{activityDesc},'$')
+            </if>
+        </trim>
     </select>
-
-    <insert id="insert" parameterType="cn.ming.mybatis.test.po.Activity">
-        INSERT INTO activity
-        (activity_id, activity_name, activity_desc, create_time, update_time)
-        VALUES (#{activityId}, #{activityName}, #{activityDesc}, now(), now())
-
-        <selectKey keyProperty="id" order="AFTER" resultType="long">
-            SELECT LAST_INSERT_ID()
-        </selectKey>
-
-    </insert>
 
 </mapper>
