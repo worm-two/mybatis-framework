@@ -4,7 +4,6 @@ import lombok.Data;
 
 import java.util.Date;
 
-@Data
 public class Activity {
 
     /**
@@ -41,6 +40,13 @@ public class Activity {
      * 修改时间
      */
     private Date updateTime;
+
+    public Activity() {
+    }
+
+    public Activity(Long activityId) {
+        this.activityId = activityId;
+    }
 
     public Long getId() {
         return id;
