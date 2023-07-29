@@ -3,6 +3,7 @@ package cn.ming.mybatis.session;
 import cn.ming.mybatis.builder.xml.XMLConfigBuilder;
 import cn.ming.mybatis.session.defaults.DefaultSqlSessionFactory;
 import lombok.extern.slf4j.Slf4j;
+import org.dom4j.Document;
 
 import java.io.Reader;
 
@@ -13,20 +14,20 @@ import java.io.Reader;
  * @Version: 1.0
  * @Description: session工厂建造者
  **/
-@Slf4j
 public class SqlSessionFactoryBuilder {
 
-
     public SqlSessionFactory build(Reader reader) {
-        XMLConfigBuilder configBuilder = new XMLConfigBuilder(reader);
-        Configuration configuration = configBuilder.parse();
-        return build(configuration);
-
+        XMLConfigBuilder xmlConfigBuilder = new XMLConfigBuilder(reader);
+        return build(xmlConfigBuilder.parse());
     }
 
+    public SqlSessionFactory build(Document document) {
+        XMLConfigBuilder xmlConfigBuilder = new XMLConfigBuilder(document);
+        return build(xmlConfigBuilder.parse());
+    }
 
-    public SqlSessionFactory build(Configuration configuration) {
-        return new DefaultSqlSessionFactory(configuration);
+    public SqlSessionFactory build(Configuration config) {
+        return new DefaultSqlSessionFactory(config);
     }
 
 }

@@ -1,13 +1,16 @@
 package cn.ming.mybatis.test;
 
-import cn.ming.mybatis.test.dao.IActivityDao;
-import cn.ming.mybatis.test.po.Activity;
+import cn.ming.mybatis.test.dao.IUserDao;
+import cn.ming.mybatis.test.po.User;
 import com.alibaba.fastjson.JSON;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.BeanFactory;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import javax.annotation.Resource;
 
 /**
  * @Author: xuming
@@ -15,16 +18,18 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @Version: 1.0
  * @Description: 单元测试
  **/
+@SpringBootTest(classes = Application.class)
 public class ApiTest {
 
     private Logger logger = LoggerFactory.getLogger(ApiTest.class);
 
+    @Resource
+    private IUserDao userDao;
+
     @Test
-    public void test_ClassPathXmlApplicationContext() {
-        BeanFactory beanFactory = new ClassPathXmlApplicationContext("spring-config.xml");
-        IActivityDao dao = beanFactory.getBean("IActivityDao", IActivityDao.class);
-        Activity res = dao.queryActivityById(new Activity(100001L));
-        logger.info("测试结果：{}", JSON.toJSONString(res));
+    public void test_queryUserInfoById() {
+        User user = userDao.queryUserInfoById(1L);
+        logger.info("测试结果：{}", JSON.toJSONString(user));
     }
 
 }
