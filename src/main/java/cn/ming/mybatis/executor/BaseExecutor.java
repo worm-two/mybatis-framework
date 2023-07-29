@@ -92,6 +92,9 @@ public abstract class BaseExecutor implements Executor {
         return list;
     }
 
+    /**
+     * ExecutionPlaceholder.EXECUTION_PLACEHOLDER 是一个查询标记，这个占位符可以避免在查询缓存时出现“脏读”，当多个线程同时查询同一个 key 的缓存，其中一个线程正在执行查询，而其他线程还没有获取到缓存结果时就直接返回了缓存中的占位符，导致数据不一致的情况。
+     */
     private <E> List<E> queryFromDatabase(MappedStatement ms, Object parameter, RowBounds rowBounds, ResultHandler resultHandler, CacheKey key, BoundSql boundSql) throws SQLException {
         List<E> list;
         localCache.putObject(key, ExecutionPlaceholder.EXECUTION_PLACEHOLDER);
@@ -182,6 +185,11 @@ public abstract class BaseExecutor implements Executor {
     }
 
     @Override
+    public void setExecutorWrapper(Executor executor) {
+        this.wrapper = wrapper;
+    }
+
+    @Override
     public void close(boolean forceRollback) {
         try {
             try {
@@ -193,6 +201,7 @@ public abstract class BaseExecutor implements Executor {
             logger.warn("Unexpected exception on closing transaction.  Cause: " + e);
         } finally {
             transaction = null;
+            localCache = null;
             closed = true;
         }
     }

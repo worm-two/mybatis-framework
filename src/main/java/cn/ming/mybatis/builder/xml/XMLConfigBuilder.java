@@ -44,6 +44,13 @@ public class XMLConfigBuilder extends BaseBuilder {
         }
     }
 
+    public XMLConfigBuilder(Document document) {
+        // 1. 调用父类初始化Configuration
+        super(new Configuration());
+        // 2. dom4j 处理 xml
+        root = document.getRootElement();
+    }
+
     /**
      * 解析配置；类型别名、插件、对象工厂、对象包装工厂、设置、环境、类型转换、映射器
      *
@@ -94,6 +101,8 @@ public class XMLConfigBuilder extends BaseBuilder {
 
     /**
      * <settings>
+     * <!-- 全局缓存：true/false -->
+     * <setting name="cacheEnabled" value="false"/>
      * <!--缓存级别：SESSION/STATEMENT-->
      * <setting name="localCacheScope" value="SESSION"/>
      * </settings>
@@ -105,6 +114,7 @@ public class XMLConfigBuilder extends BaseBuilder {
         for (Element element : elements) {
             props.setProperty(element.attributeValue("name"), element.attributeValue("value"));
         }
+        configuration.setCacheEnabled(booleanValueOf(props.getProperty("cacheEnabled"), true));
         configuration.setLocalCacheScope(LocalCacheScope.valueOf(props.getProperty("localCacheScope")));
     }
 

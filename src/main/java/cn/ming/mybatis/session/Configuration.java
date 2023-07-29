@@ -1,7 +1,11 @@
 package cn.ming.mybatis.session;
 
+import cn.ming.mybatis.cache.Cache;
+import cn.ming.mybatis.cache.decorators.FifoCache;
+import cn.ming.mybatis.cache.impl.PerpetualCache;
 import cn.ming.mybatis.datasource.pooled.PooledDataSourceFactory;
 import cn.ming.mybatis.datasource.unpooled.UnpooledDataSourceFactory;
+import cn.ming.mybatis.executor.CachingExecutor;
 import cn.ming.mybatis.executor.keygen.KeyGenerator;
 import cn.ming.mybatis.mapping.ResultMap;
 import cn.ming.mybatis.plugin.Interceptor;
@@ -47,6 +51,8 @@ public class Configuration {
     // 环境
     protected Environment environment;
     protected boolean useGeneratedKeys = false;
+    // 默认启用缓存，cacheEnabled = true/false
+    protected boolean cacheEnabled = true;
     // 缓存机制，默认不配置的情况是 SESSION
     protected LocalCacheScope localCacheScope = LocalCacheScope.SESSION;
 
@@ -55,6 +61,8 @@ public class Configuration {
 
     // 映射的语句，存在Map里
     protected final Map<String, MappedStatement> mappedStatements = new HashMap<>();
+    // 缓存,存在Map里
+    protected final Map<String, Cache> caches = new HashMap<>();
     // 结果映射，存在Map里
     protected final Map<String, ResultMap> resultMaps = new HashMap<>();
     protected final Map<String, KeyGenerator> keyGenerators = new HashMap<>();
@@ -83,6 +91,9 @@ public class Configuration {
         typeAliasRegistry.registerAlias("DRUID", DruidDataSourceFactory.class);
         typeAliasRegistry.registerAlias("UNPOOLED", UnpooledDataSourceFactory.class);
         typeAliasRegistry.registerAlias("POOLED", PooledDataSourceFactory.class);
+
+        typeAliasRegistry.registerAlias("PERPETUAL", PerpetualCache.class);
+        typeAliasRegistry.registerAlias("FIFO", FifoCache.class);
 
         languageRegistry.setDefaultDriverClass(XMLLanguageDriver.class);
     }
@@ -138,7 +149,12 @@ public class Configuration {
      * 生产执行器
      */
     public Executor newExecutor(Transaction transaction) {
-        return new SimpleExecutor(this, transaction);
+        Executor executor = new SimpleExecutor(this, transaction);
+        // 配置开启缓存，创建 CachingExecutor(默认就是有缓存)装饰者模式
+        if (cacheEnabled) {
+            executor = new CachingExecutor(executor);
+        }
+        return executor;
     }
 
     /**
@@ -227,6 +243,22 @@ public class Configuration {
 
     public void setLocalCacheScope(LocalCacheScope localCacheScope) {
         this.localCacheScope = localCacheScope;
+    }
+
+    public boolean isCacheEnabled() {
+        return cacheEnabled;
+    }
+
+    public void setCacheEnabled(boolean cacheEnabled) {
+        this.cacheEnabled = cacheEnabled;
+    }
+
+    public void addCache(Cache cache) {
+        caches.put(cache.getId(), cache);
+    }
+
+    public Cache getCache(String id) {
+        return caches.get(id);
     }
 
 }
