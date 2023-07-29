@@ -11,6 +11,8 @@
         <result column="update_time" property="updateTime"/>
     </resultMap>
 
+    <cache eviction="FIFO" flushInterval="600000" size="512" readOnly="true"/>
+
     <select id="queryActivityById" parameterType="cn.ming.mybatis.test.po.Activity" resultMap="activityMap">
         SELECT activity_id, activity_name, activity_desc, create_time, update_time
         FROM activity
