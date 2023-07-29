@@ -1,7 +1,5 @@
 package cn.ming.mybatis.type;
 
-import lombok.AllArgsConstructor;
-
 import java.sql.Types;
 import java.util.HashMap;
 import java.util.Map;

@@ -2,13 +2,13 @@ package cn.ming.mybatis.executor.statement;
 
 import cn.ming.mybatis.executor.Executor;
 import cn.ming.mybatis.executor.keygen.KeyGenerator;
-import cn.ming.mybatis.executor.parameter.ParameterHandler;
-import cn.ming.mybatis.executor.resultset.ResultSetHandler;
 import cn.ming.mybatis.mapping.BoundSql;
 import cn.ming.mybatis.mapping.MappedStatement;
 import cn.ming.mybatis.session.Configuration;
 import cn.ming.mybatis.session.ResultHandler;
 import cn.ming.mybatis.session.RowBounds;
+import cn.ming.mybatis.executor.parameter.ParameterHandler;
+import cn.ming.mybatis.executor.resultset.ResultSetHandler;
 
 import java.sql.Connection;
 import java.sql.SQLException;

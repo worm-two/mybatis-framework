@@ -4,8 +4,9 @@ import cn.ming.mybatis.annotations.Delete;
 import cn.ming.mybatis.annotations.Insert;
 import cn.ming.mybatis.annotations.Select;
 import cn.ming.mybatis.annotations.Update;
-import cn.ming.mybatis.binding.MapperMethod;
 import cn.ming.mybatis.builder.MapperBuilderAssistant;
+import cn.ming.mybatis.session.RowBounds;
+import cn.ming.mybatis.binding.MapperMethod;
 import cn.ming.mybatis.executor.keygen.Jdbc3KeyGenerator;
 import cn.ming.mybatis.executor.keygen.KeyGenerator;
 import cn.ming.mybatis.executor.keygen.NoKeyGenerator;
@@ -14,7 +15,6 @@ import cn.ming.mybatis.mapping.SqlSource;
 import cn.ming.mybatis.scripting.LanguageDriver;
 import cn.ming.mybatis.session.Configuration;
 import cn.ming.mybatis.session.ResultHandler;
-import cn.ming.mybatis.session.RowBounds;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.*;

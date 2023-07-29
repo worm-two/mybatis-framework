@@ -1,12 +1,12 @@
 package cn.ming.mybatis.builder;
 
 import cn.ming.mybatis.mapping.ParameterMapping;
-import cn.ming.mybatis.mapping.SqlSource;
-import cn.ming.mybatis.parsing.GenericTokenParser;
-import cn.ming.mybatis.parsing.TokenHandler;
 import cn.ming.mybatis.reflection.MetaClass;
 import cn.ming.mybatis.reflection.MetaObject;
 import cn.ming.mybatis.session.Configuration;
+import cn.ming.mybatis.mapping.SqlSource;
+import cn.ming.mybatis.parsing.GenericTokenParser;
+import cn.ming.mybatis.parsing.TokenHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -1,7 +1,6 @@
 package cn.ming.mybatis.mapping;
 
 import cn.ming.mybatis.session.Configuration;
-import cn.ming.mybatis.type.JdbcType;
 import cn.ming.mybatis.type.TypeHandler;
 import cn.ming.mybatis.type.TypeHandlerRegistry;
 

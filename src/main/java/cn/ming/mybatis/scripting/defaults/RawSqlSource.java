@@ -1,11 +1,11 @@
 package cn.ming.mybatis.scripting.defaults;
 
+import cn.ming.mybatis.session.Configuration;
 import cn.ming.mybatis.builder.SqlSourceBuilder;
 import cn.ming.mybatis.mapping.BoundSql;
 import cn.ming.mybatis.mapping.SqlSource;
 import cn.ming.mybatis.scripting.xmltags.DynamicContext;
 import cn.ming.mybatis.scripting.xmltags.SqlNode;
-import cn.ming.mybatis.session.Configuration;
 
 import java.util.HashMap;
 

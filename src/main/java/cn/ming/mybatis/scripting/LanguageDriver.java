@@ -1,10 +1,10 @@
 package cn.ming.mybatis.scripting;
 
-import cn.ming.mybatis.executor.parameter.ParameterHandler;
 import cn.ming.mybatis.mapping.BoundSql;
 import cn.ming.mybatis.mapping.MappedStatement;
-import cn.ming.mybatis.mapping.SqlSource;
 import cn.ming.mybatis.session.Configuration;
+import cn.ming.mybatis.executor.parameter.ParameterHandler;
+import cn.ming.mybatis.mapping.SqlSource;
 import org.dom4j.Element;
 
 /**

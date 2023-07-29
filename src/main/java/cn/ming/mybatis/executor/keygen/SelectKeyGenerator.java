@@ -1,10 +1,10 @@
 package cn.ming.mybatis.executor.keygen;
 
+import cn.ming.mybatis.session.RowBounds;
 import cn.ming.mybatis.executor.Executor;
 import cn.ming.mybatis.mapping.MappedStatement;
 import cn.ming.mybatis.reflection.MetaObject;
 import cn.ming.mybatis.session.Configuration;
-import cn.ming.mybatis.session.RowBounds;
 
 import java.sql.Statement;
 import java.util.List;

@@ -4,7 +4,6 @@ import cn.ming.mybatis.mapping.MappedStatement;
 import cn.ming.mybatis.mapping.SqlCommandType;
 import cn.ming.mybatis.session.Configuration;
 import cn.ming.mybatis.session.SqlSession;
-import lombok.Getter;
 
 import java.lang.reflect.Method;
 import java.util.*;
@@ -100,7 +99,7 @@ public class MapperMethod {
         public Object convertArgsToSqlCommandParam(Object[] args) {
             final int paramCount = params.size();
             if (args == null || paramCount == 0) {
-                //如果没参数
+                // 如果没参数
                 return null;
             } else if (paramCount == 1) {
                 return args[params.keySet().iterator().next().intValue()];

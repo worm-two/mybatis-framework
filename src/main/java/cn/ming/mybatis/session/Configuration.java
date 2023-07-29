@@ -1,20 +1,8 @@
 package cn.ming.mybatis.session;
 
-import cn.ming.mybatis.binding.MapperRegistry;
-import cn.ming.mybatis.datasource.druid.DruidDataSourceFactory;
 import cn.ming.mybatis.datasource.pooled.PooledDataSourceFactory;
 import cn.ming.mybatis.datasource.unpooled.UnpooledDataSourceFactory;
-import cn.ming.mybatis.executor.Executor;
-import cn.ming.mybatis.executor.SimpleExecutor;
 import cn.ming.mybatis.executor.keygen.KeyGenerator;
-import cn.ming.mybatis.executor.parameter.ParameterHandler;
-import cn.ming.mybatis.executor.resultset.DefaultResultSetHandler;
-import cn.ming.mybatis.executor.resultset.ResultSetHandler;
-import cn.ming.mybatis.executor.statement.PreparedStatementHandler;
-import cn.ming.mybatis.executor.statement.StatementHandler;
-import cn.ming.mybatis.mapping.BoundSql;
-import cn.ming.mybatis.mapping.Environment;
-import cn.ming.mybatis.mapping.MappedStatement;
 import cn.ming.mybatis.mapping.ResultMap;
 import cn.ming.mybatis.plugin.Interceptor;
 import cn.ming.mybatis.plugin.InterceptorChain;
@@ -23,6 +11,18 @@ import cn.ming.mybatis.reflection.factory.DefaultObjectFactory;
 import cn.ming.mybatis.reflection.factory.ObjectFactory;
 import cn.ming.mybatis.reflection.wrapper.DefaultObjectWrapperFactory;
 import cn.ming.mybatis.reflection.wrapper.ObjectWrapperFactory;
+import cn.ming.mybatis.binding.MapperRegistry;
+import cn.ming.mybatis.datasource.druid.DruidDataSourceFactory;
+import cn.ming.mybatis.executor.Executor;
+import cn.ming.mybatis.executor.SimpleExecutor;
+import cn.ming.mybatis.executor.parameter.ParameterHandler;
+import cn.ming.mybatis.executor.resultset.DefaultResultSetHandler;
+import cn.ming.mybatis.executor.resultset.ResultSetHandler;
+import cn.ming.mybatis.executor.statement.PreparedStatementHandler;
+import cn.ming.mybatis.executor.statement.StatementHandler;
+import cn.ming.mybatis.mapping.BoundSql;
+import cn.ming.mybatis.mapping.Environment;
+import cn.ming.mybatis.mapping.MappedStatement;
 import cn.ming.mybatis.scripting.LanguageDriver;
 import cn.ming.mybatis.scripting.LanguageDriverRegistry;
 import cn.ming.mybatis.scripting.xmltags.XMLLanguageDriver;
@@ -44,9 +44,11 @@ import java.util.Set;
  **/
 public class Configuration {
 
-    //环境
+    // 环境
     protected Environment environment;
     protected boolean useGeneratedKeys = false;
+    // 缓存机制，默认不配置的情况是 SESSION
+    protected LocalCacheScope localCacheScope = LocalCacheScope.SESSION;
 
     // 映射注册机
     protected MapperRegistry mapperRegistry = new MapperRegistry(this);
@@ -217,6 +219,14 @@ public class Configuration {
 
     public void addInterceptor(Interceptor interceptorInstance) {
         interceptorChain.addInterceptor(interceptorInstance);
+    }
+
+    public LocalCacheScope getLocalCacheScope() {
+        return localCacheScope;
+    }
+
+    public void setLocalCacheScope(LocalCacheScope localCacheScope) {
+        this.localCacheScope = localCacheScope;
     }
 
 }

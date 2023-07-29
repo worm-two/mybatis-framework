@@ -2,9 +2,7 @@ package cn.ming.mybatis.mapping;
 
 import cn.ming.mybatis.transaction.TransactionFactory;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 import javax.sql.DataSource;
 

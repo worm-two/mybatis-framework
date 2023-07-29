@@ -3,8 +3,8 @@ package cn.ming.mybatis.mapping;
 import cn.ming.mybatis.executor.keygen.Jdbc3KeyGenerator;
 import cn.ming.mybatis.executor.keygen.KeyGenerator;
 import cn.ming.mybatis.executor.keygen.NoKeyGenerator;
-import cn.ming.mybatis.scripting.LanguageDriver;
 import cn.ming.mybatis.session.Configuration;
+import cn.ming.mybatis.scripting.LanguageDriver;
 
 import java.util.Collections;
 import java.util.List;
@@ -25,6 +25,7 @@ public class MappedStatement {
     Class<?> resultType;
     private LanguageDriver lang;
     private List<ResultMap> resultMaps;
+    private boolean flushCacheRequired;
     // step-14 新增
     private KeyGenerator keyGenerator;
     private String[] keyProperties;
@@ -142,6 +143,10 @@ public class MappedStatement {
 
     public String getResource() {
         return resource;
+    }
+
+    public boolean isFlushCacheRequired() {
+        return flushCacheRequired;
     }
 
 }

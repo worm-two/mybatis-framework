@@ -4,10 +4,6 @@ import cn.ming.mybatis.session.Configuration;
 import cn.ming.mybatis.type.JdbcType;
 import cn.ming.mybatis.type.TypeHandler;
 import cn.ming.mybatis.type.TypeHandlerRegistry;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 /**
  * @Author: xuming

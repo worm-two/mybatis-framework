@@ -1,13 +1,13 @@
 package cn.ming.mybatis.scripting.xmltags;
 
-import cn.ming.mybatis.executor.parameter.ParameterHandler;
 import cn.ming.mybatis.mapping.BoundSql;
 import cn.ming.mybatis.mapping.MappedStatement;
 import cn.ming.mybatis.mapping.SqlSource;
 import cn.ming.mybatis.scripting.LanguageDriver;
-import cn.ming.mybatis.scripting.defaults.DefaultParameterHandler;
 import cn.ming.mybatis.scripting.defaults.RawSqlSource;
 import cn.ming.mybatis.session.Configuration;
+import cn.ming.mybatis.executor.parameter.ParameterHandler;
+import cn.ming.mybatis.scripting.defaults.DefaultParameterHandler;
 import org.dom4j.Element;
 
 /**

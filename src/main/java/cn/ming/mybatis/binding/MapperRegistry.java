@@ -4,7 +4,6 @@ import cn.hutool.core.lang.ClassScanner;
 import cn.ming.mybatis.builder.annotation.MapperAnnotationBuilder;
 import cn.ming.mybatis.session.Configuration;
 import cn.ming.mybatis.session.SqlSession;
-import lombok.AllArgsConstructor;
 
 import java.util.HashMap;
 import java.util.Map;
